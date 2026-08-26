@@ -46,13 +46,16 @@ The pipeline executes through a 4-tier modular Common Table Expression (CTE) arc
        ▼ (Deterministic Algorithmic Weight Allocation)
 [Tier 4: 4-Model Attribution Matrix (FTA / LTA / Linear / U-Shaped)]
 ```
-### Attribution Model Mathematical Formulations:
+### Attribution Model Formulations:
 1. **First-Touch Attribution (FTA):**
-   $$W_{\text{first}} = 1.0, \quad W_{i} = 0.0 \quad (\forall i > 1)$$
+   * First touchpoint receives 100% of conversion credit: `Weight = 1.0`
+   * Subsequent touchpoints: `Weight = 0.0`
 2. **Last-Touch Attribution (LTA):**
-   $$W_{\text{last}} = 1.0, \quad W_{i} = 0.0 \quad (\forall i < N)$$
+   * Final converting touchpoint receives 100% of credit: `Weight = 1.0`
+   * Prior touchpoints: `Weight = 0.0`
 3. **Linear Attribution:**
-   $$W_i = \frac{1}{N} \quad (\forall i \in [1, N])$$
+   * Equal distribution across all touchpoints: `Weight = 1 / N` (where `N` is total touchpoints)
 4. **Position-Based / U-Shaped Attribution:**
-   $$\text{For } N = 1: W_1 = 1.0; \quad \text{For } N = 2: W_1 = 0.50, W_2 = 0.50; \quad \text{For } N \ge 3: W_1 = 0.40, W_N = 0.40, W_{\text{middle}} = \frac{0.20}{N - 2}$$
-
+   * Single Touch (`N = 1`): `Weight = 1.0` (100%)
+   * Two Touches (`N = 2`): First = `0.50` (50%), Last = `0.50` (50%)
+   * Three or More Touches (`N ≥ 3`): First = `0.40` (40%), Last = `0.40` (40%), Middle = `0.20 / (N - 2)` split equally across intermediate touchpoints
