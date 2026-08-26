@@ -231,7 +231,6 @@ sql-marketing-aurametric-attribution-engine/
 
 ##  Step-by-Step Deployment & Execution Guide
 
-```bash
 ### 1. Clone repository to your local engineering workspace
 ```bash
 git clone https://github.com/Elsamag/sql-marketing-aurametric-attribution-engine.git
