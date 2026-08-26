@@ -46,7 +46,6 @@ The pipeline executes through a 4-tier modular Common Table Expression (CTE) arc
        ▼ (Deterministic Algorithmic Weight Allocation)
 [Tier 4: 4-Model Attribution Matrix (FTA / LTA / Linear / U-Shaped)]
 ```
-
 ### Attribution Model Mathematical Formulations:
 1. **First-Touch Attribution (FTA):**
    $$W_{\text{first}} = 1.0, \quad W_{i} = 0.0 \quad (\forall i > 1)$$
